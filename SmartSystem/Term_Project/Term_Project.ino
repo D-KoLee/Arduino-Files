@@ -50,7 +50,6 @@ int prev_state = 0;
 int manual = 0;
 int manual_degree = 0;
 int BTH = 0;
-char mode = ' ';
 //int randomNum = 0;
 
 void setup() {

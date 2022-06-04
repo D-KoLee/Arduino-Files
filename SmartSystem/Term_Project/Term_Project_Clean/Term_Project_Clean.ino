@@ -46,8 +46,6 @@ int addAngle = 10;
 int prev_state = 0;
 int manual = 0;
 int manual_degree = 90;
-int BTH = 0;
-char mode = ' ';
 
 void setup() {
   SPI.begin();
@@ -123,9 +121,6 @@ void loop() {
     else if (manual == 2) {
       int BTHdegree = remote(bluetooth.read() - 48);
       if (BTHdegree >= 0) Servo_Barrel.write(BTHdegree);
-      Serial.println(BTH);
-      Serial.println(BTHdegree);
-      Serial.println("");
     }
   }
   else if (active == 2) { //Sleep Mode
