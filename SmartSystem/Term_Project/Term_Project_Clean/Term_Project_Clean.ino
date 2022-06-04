@@ -22,7 +22,6 @@ int X = A5;
 int Z = A3;
 int remoteSensor = A1;
 int button = A4;
-const int SPEAKER = 0;
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(1, led, NEO_GRB + NEO_KHZ800);
 SoftwareSerial bluetooth(BT_RXD, BT_TXD);
 MFRC522 mfrc(SS_PIN, RST_PIN);
@@ -97,8 +96,8 @@ void loop() {
     }
     Servo_Ultra.write(angle);
     if (angle >= 180 || angle <= 0) addAngle *= -1;
-
   }
+  
   else if (active == 1) { //Manual
     if (analogRead(X) >= 510 || analogRead(X) <= 500) {
       manual = 0;
@@ -123,6 +122,7 @@ void loop() {
       if (BTHdegree >= 0) Servo_Barrel.write(BTHdegree);
     }
   }
+  
   else if (active == 2) { //Sleep Mode
     Servo_Ultra.write(90);
     Servo_Barrel.write(90);
